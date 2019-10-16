@@ -1,83 +1,87 @@
-(function()
-{
-	var canvas = document.querySelector( "#canvas" );
-	var context = canvas.getContext( "2d" );
-	canvas.width = 280;
-	canvas.height = 280;
+(function() {
+	var canvas = document.querySelector('#canvas');
+	const context = canvas.getContext('2d');
+	var lastMouse, Mouse;
+	lastMouse = Mouse = { x: 0, y: 0 };
 
-	var Mouse = { x: 0, y: 0 };
-	var lastMouse = { x: 0, y: 0 };
-	context.fillStyle="white";
-	context.fillRect(0,0,canvas.width,canvas.height);
-	context.color = "black";
+	canvas.height = canvas.width = 280;
+	context.fillStyle = 'white';
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	// context.clearRect(0, 0, canvas.width, canvas.height);
+	context.color = 'black';
 	context.lineWidth = 10;
-    context.lineJoin = context.lineCap = 'round';
-	
-	debug();
+	context.lineJoin = context.lineCap = 'round';
 
-	canvas.addEventListener( "mousemove", function( e )
-	{
-		lastMouse.x = Mouse.x;
-		lastMouse.y = Mouse.y;
+	prepareCanvas();
 
-		Mouse.x = e.pageX - this.offsetLeft;
-		Mouse.y = e.pageY - this.offsetTop;
+	canvas.addEventListener(
+		'mousemove',
+		function(e) {
+			lastMouse.x = Mouse.x;
+			lastMouse.y = Mouse.y;
 
-	}, false );
+			Mouse.x = e.pageX - this.offsetLeft;
+			Mouse.y = e.pageY - this.offsetTop;
+		},
+		false
+	);
 
-	canvas.addEventListener( "mousedown", function( e )
-	{
-		canvas.addEventListener( "mousemove", onPaint, false );
+	canvas.addEventListener(
+		'mousedown',
+		function() {
+			canvas.addEventListener('mousemove', onWrite, false);
+		},
+		false
+	);
 
-	}, false );
+	canvas.addEventListener(
+		'mouseup',
+		function() {
+			canvas.removeEventListener('mousemove', onWrite, false);
+		},
+		false
+	);
 
-	canvas.addEventListener( "mouseup", function()
-	{
-		canvas.removeEventListener( "mousemove", onPaint, false );
-
-	}, false );
-
-	var onPaint = function()
-	{	
+	var onWrite = function() {
 		context.lineWidth = context.lineWidth;
-		context.lineJoin = "round";
-		context.lineCap = "round";
+		context.lineJoin = 'round';
+		context.lineCap = 'round';
 		context.strokeStyle = context.color;
-	
+
 		context.beginPath();
-		context.moveTo( lastMouse.x, lastMouse.y );
-		context.lineTo( Mouse.x, Mouse.y );
+		context.moveTo(lastMouse.x, lastMouse.y);
+		context.lineTo(Mouse.x, Mouse.y);
 		context.closePath();
 		context.stroke();
 	};
+	/* CLEAR BUTTON */
+	function prepareCanvas() {
+		var clearButton = $('#clearButton');
 
-	function debug()
-	{
-		/* CLEAR BUTTON */
-		var clearButton = $( "#clearButton" );
-		
-		clearButton.on( "click", function()
-		{
-			
-				context.clearRect( 0, 0, 280, 280 );
-				context.fillStyle="white";
-				context.fillRect(0,0,canvas.width,canvas.height);
-			
+		clearButton.on('click', function() {
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			context.fillStyle = 'white';
+			context.fillRect(0, 0, canvas.width, canvas.height);
 		});
 
 		/* COLOR SELECTOR */
-
-		$( "#colors" ).change(function()
-		{
-			var color = $( "#colors" ).val();
+		$('#colors').change(function() {
+			var color = $('#colors').val();
 			context.color = color;
 		});
-		
-		/* LINE WIDTH */
-		
-		$( "#lineWidth" ).change(function()
-		{
-			context.lineWidth = $( this ).val();
-		});
+
+		/* FONT WIDTH ADJUSTER */
+		var slider = document.getElementById('myRange');
+		var output = document.getElementById('sliderValue');
+		output.innerHTML = slider.value;
+		slider.oninput = function() {
+			output.innerHTML = this.value;
+			context.lineWidth = $(this).val();
+		};
+
+		// /* LINE WIDTH */
+		// $('#lineWidth').change(function() {
+		// 	context.lineWidth = $(this).val();
+		// });
 	}
-}());
+})();

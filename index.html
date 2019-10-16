@@ -1,46 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 	<head>
-		<meta charset="UTF-8">
-		<title>Handwritten Digit Recognition using Convolutional Neural Networks</title>	
-		<link rel="stylesheet" href='static/css/style.css'>
-		<!-- <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"> -->
+		<meta charset='UTF-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+		<meta http-equiv='X-UA-Compatible' content='ie=edge'>
+		<title>Integer Classifier Application</title>	
+		<link rel='stylesheet' href='static/css/style.css'>
+		<!-- <link rel='stylesheet' href='{{ url_for('static',filename='style.css') }}'> -->
 	</head>
 <body>
-	<h1>Handwritten Digit Recognition using <span>Convolutional Neural Networks</span></h1>
-	<canvas id="canvas" width="280" height="280" style="border:8px solid; float: left; margin: 70px; margin-top:160px;  border-radius: 5px; cursor: crosshair;"></canvas>
-	<div id="debug" style="margin:65px; margin-top:100px;">
-		<!-- <input type="color" id="colors">
-		<input type="number" id="lineWidth" style="width:60px" value="0.2" step="0.1" min="0.1"> -->
-		<input type="button" id="clearButton" value="Clear" style="">
-		<br/>
-		<span style="color: #4DAF7C; font-weight: 400; font-family: 'Open Sans', Helvetica;	">Draw the Digit inside this Box!</span>
+	<div class="container col-8">
+		<div class="row col-8">
+			<div class="col-8">
+				<h1 id='mainTitle'>Handwritten Digit Recognition using 
+					<span>Convolutional Neural Networks</span>
+				</h1>
+			</div>
+		</div>
+		<div class="row col-8">
+			<div id='slideContainer'>
+					<p>Drag the slider to change the line width.</p>
+						<input type='range' min='1' max='25' value='10' id='myRange' />
+					<p>Value: 
+						<span id='sliderValue'></span>
+					</p>
+			</div>
+				
+			<div id='canvasContainer'>
+					<canvas id='canvas'></canvas>
+			</div>
+		</div>
 	</div>
-	<div style="margin-left:175px; margin-top:460px; float:left; position:absolute;">
-		<a href="#" class="myButton">
-			<span style=" font-weight: 400; font-family: 'Open Sans', Helvetica;"> Predict </span>
-		</a>			
+	<div id="infoContainer" class="container col-8">
+		<div class="row col-8">
+				<input id='clearButton' type='button' value='Clear'>
+		</div>
+		<div class="row">
+			<span id='instructions'>Write a number in the Canvas</span>
+		</div>
+
+		<div id="predictionRow" class="row col-8">
+			<a href='#' class='predictButton'>
+				<span> Predict </span>
+			</a>			
+		</div>
+		<div class="row col-8">
+			<h1 id='result'>
+				<span> </span>
+			</h1>
+		</div>
 	</div>
-	<div>
-		<h1 id="result" style="margin-right:20px; margin-top:300px;float:left;">
-			<span> </span>
-		</h1>
-	</div>
-	
+			
+	<!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<script src='static/js/jquery.min.js'></script>
 	<script src='static/js/index.js'></script>
-	<!-- <script src="{{ url_for('static',filename='index.js') }}"></script> -->
-	<script type="text/javascript">
-	   	$(".myButton").click(function()
+	<!-- <script src='{{ url_for('static',filename='index.js') }}'></script> -->
+	<script type='text/javascript'>
+	   	$('.predictButton').click(function()
 		   {
 			// var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-			var canvasObj = document.getElementById("canvas");
+			var canvasObj = document.getElementById('canvas');
 			var img = canvasObj.toDataURL();
 			$.ajax(
 				{
-				type: "POST",
-				url: "/predict/",
-				// url: $SCRIPT_ROOT + "/predict/",
+				type: 'POST',
+				url: '/predict/',
+				// url: $SCRIPT_ROOT + '/predict/',
 				data: img,
 				success: function(data)
 				{
