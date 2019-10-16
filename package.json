@@ -1,0 +1,24 @@
+{
+  "name": "mnist_cnn_digit_classifier",
+  "version": "1.0.0",
+  "description": "Full-Stack Digit Classification Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier.git"
+  },
+  "author": "Omar Abusheikh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/issues"
+  },
+  "homepage": "https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier#readme",
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2"
+  }
+}

@@ -103,5 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# personal directory
+# personal directories
 localfiles/
+node_modules/
