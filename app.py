@@ -31,7 +31,6 @@ def convert_canvas(canvas_data):
     Canvas will sytem_outputput user entry as Base64 Encoded String;
     This function will Decode the string to binary data to work with;
     '''
-
     # pinpoint 64 encoded string
     encoded_string = re.search(r'base64,(.*)', canvas_data).group(1)
     decoded_binary_data = base64.b64decode(encoded_string)  # decode
@@ -83,27 +82,28 @@ def preprocess_array(array):
     array /= 255
     return array
 
+
 def make_prediction(image_array):
-	'''
-	Makes a Prediction Using Our Model & Returns it
-	'''
-	#     Issue w/ model.predict in Flask; using tf.graph instead
-	#     prediction = model.predict(image_array).argmax()
-	#     print(f'The predicted number is {prediction}')
-	accross_columns = 1
+    '''
+    Makes a Prediction Using Our Model & Returns it
+    '''
+    #     Issue w/ model.predict in Flask; using tf.graph instead
+    #     prediction = model.predict(image_array).argmax()
+    #     print(f'The predicted number is {prediction}')
+    accross_columns = 1
 
-	with graph.as_default():
-		# set_session(session)
-		# 10 unique probabilities of integer likelihoods;
-		probability_array = model.predict(image_array)
-		highest_probability_index = np.argmax(
-			probability_array, axis=accross_columns)  # Prediction = highest probability
-		# Prediction = highest probability
-		prediction = str(highest_probability_index)
-		probability = '{:.5%}'.format(
-			float(probability_array[0][highest_probability_index]))
-
-	return prediction, probability
+    with graph.as_default():
+        # set_session(session)
+        # 10 unique probabilities of integer likelihoods;
+        probability_array = model.predict(image_array)
+        highest_probability_index = np.argmax(
+            probability_array, axis=accross_columns)  # Prediction = highest probability
+        # Prediction = highest probability
+        prediction = str(highest_probability_index)
+        probability = '{:.5%}'.format(
+            float(probability_array[0][highest_probability_index]))
+    # return prediction, probability
+    return prediction
 
 
 filepath = 'temp/image_canvas.png'  # location of file output from canvas
@@ -136,8 +136,10 @@ def predict():
     filepath = convert_canvas(canvas_data)
     image_array = preprocess_image(filepath)
     image_array = preprocess_array(image_array)
-    prediction, probability = make_prediction(image_array)
-    return prediction, probability
+    prediction = make_prediction(image_array)
+#     prediction, probability = make_prediction(image_array)
+    # return prediction, probability
+    return prediction
 
 
 if __name__ == "__main__":

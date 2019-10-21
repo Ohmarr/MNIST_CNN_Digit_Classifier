@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
     "autoprefixer": "^9.6.5",
     "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",

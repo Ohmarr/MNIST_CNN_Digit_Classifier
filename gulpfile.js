@@ -21,7 +21,7 @@ function browserSync(done) {
 		server: {
 			baseDir: './'
 		},
-		port: 3000
+		port: 5000 
 	});
 	done();
 }
@@ -46,6 +46,7 @@ function css() {
 		.pipe(gulp.dest('./static/css/'))
 		.pipe(browsersync.stream());
 }
+
 // Lint scripts
 function scriptsLint() {
 	return gulp
@@ -69,18 +70,25 @@ function scripts() {
 }
 // Download Latest Copy of jquery
 function copyLibraries() {
+	gulp
+		.src('./node_modules/@fortawesome/fontawesome-free/css/**/*')
+		.pipe(gulp.dest('./static/css/vendor/fontawesome-free/css'));
+	gulp
+		.src('./node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
+		.pipe(gulp.dest('./static/css/vendor/fontawesome-free/webfonts'));
 	return gulp.src('./node_modules/jquery/dist/jquery.min.js').pipe(gulp.dest('./static/js')); // will install the latest version of jquery)
 }
+
 // Watch (& Reload) if changes made to files
 function watchFiles() {
 	gulp.watch('./assets/scss/**/*.scss', css);
 	gulp.watch('./assets/js/**/*.js', gulp.series(scriptsLint, scripts));
-	gulp.watch('./index.html', browserSyncReload);
+	gulp.watch('./index.html', browserSyncReload); 
 }
 // define complex tasks
 const js = gulp.series(scriptsLint, scripts, copyLibraries);
 const build = gulp.series(clean, copyLibraries, gulp.parallel(css, js));
-const watch = gulp.parallel(watchFiles, browserSync);
+const watch = gulp.series(clean, copyLibraries, css, js, gulp.parallel(watchFiles, browserSync));
 
 // export tasks
 exports.css = css;

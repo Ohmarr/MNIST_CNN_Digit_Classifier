@@ -106,6 +106,8 @@ venv.bak/
 # personal directories
 localfiles/
 node_modules/
+backup_todelete/
+
 
 .DS_Store
 
