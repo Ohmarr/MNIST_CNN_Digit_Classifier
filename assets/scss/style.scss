@@ -27,6 +27,18 @@ $quinary: $Omar-Drk-Red;
 $septenary: #0099ea;
 
 //  quinary, senary, septenary, octonary, nonary, and denary
+html, body {
+	// margin: 0;
+	height: 100%;
+}
+body {
+	display: flex;
+	flex-direction: column;
+}
+.content {
+	flex: 1 0 auto; 
+	// flex: flex-grow|# flex-shrink|# flex-basis|auto|initial|inherit;
+}
 
 .btn {
 	text-align: center;
@@ -147,8 +159,9 @@ $septenary: #0099ea;
 	}
 }
 
-#footer {
-	padding: 0 0 1% 0;
+.footer {
+	flex-shrink: 0;
+	padding: 0 0 0 0;
 	background-color: $secondary;
 	color: $primary;
 	place-content: center;

@@ -11,6 +11,7 @@ from PIL import Image as Image_PIL  # PYTHON IMAGING LIBRARY
 
 import base64
 import numpy as np
+import os
 import re  # regular expresions
 
 global graph
@@ -143,4 +144,5 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

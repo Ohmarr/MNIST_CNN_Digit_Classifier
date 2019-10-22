@@ -1,4 +1,17 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300");
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
 .btn {
   text-align: center;
   margin: 0 0.25rem 0 0.25rem;
@@ -118,28 +131,29 @@
   text-align: center;
 }
 
-#footer {
-  padding: 0 0 1% 0;
+.footer {
+  flex-shrink: 0;
+  padding: 0 0 0 0;
   background-color: black;
   color: white;
   place-content: center;
   text-align: center;
 }
 
-#footer div {
+.footer div {
   padding: 1.0rem 0.0rem 1.0rem 0.0rem;
 }
 
-#footer div div a {
+.footer div div a {
   color: white;
 }
 
-#footer h4 {
+.footer h4 {
   text-transform: uppercase;
   padding: 3% 0 3% 0;
 }
 
-#footer .copyright {
+.footer .copyright {
   background-color: black;
   color: #6d0707;
   padding: 1% 0 1% 0;
@@ -147,13 +161,13 @@
   place-content: center;
 }
 
-#footer .copyright #copyright-text {
+.footer .copyright #copyright-text {
   color: #6d0707;
   font-size: 1.25rem;
   font-weight: 300;
 }
 
-#footer .btn-social {
+.footer .btn-social {
   color: #6d0707;
   border-radius: 50%;
   display: inline-flex;
