@@ -73,7 +73,7 @@ protobuf==3.9.2
 ptyprocess==0.6.0
 pycparser==2.19
 Pygments==2.4.2
-pygpu==0.7.6
+# pygpu==0.7.6
 pyOpenSSL==19.0.0
 pyparsing==2.4.2
 pyrsistent==0.15.4
