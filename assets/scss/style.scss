@@ -27,7 +27,8 @@ $quinary: $Omar-Drk-Red;
 $septenary: #0099ea;
 
 //  quinary, senary, septenary, octonary, nonary, and denary
-html, body {
+html,
+body {
 	// margin: 0;
 	height: 100%;
 }
@@ -36,7 +37,7 @@ body {
 	flex-direction: column;
 }
 .content {
-	flex: 1 0 auto; 
+	flex: 1 0 auto;
 	// flex: flex-grow|# flex-shrink|# flex-basis|auto|initial|inherit;
 }
 
@@ -203,5 +204,54 @@ body {
 		margin: 0.0rem 0.5rem 0.0rem 0.5rem;
 		padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 		background-color: darken($primary, 20%);
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+	.page-section {
+		padding: 1.0% 0 0.5% 0;
+		margin: auto 0 auto 0;
+	}
+	#omar-nav {
+		.navbar-logo {
+			width: 75px;
+			height: auto;
+		}
+		.navbar-brand {
+			font-size: 1.0rem;
+		}
+	}
+
+	#intro-section {
+		h1 {
+			font-size: 1.25rem;
+		}
+		h3 {
+			font-size: 1.0rem;
+		}
+	}
+	footer.footer {
+		div.container {
+			div.row {
+				div {
+					padding: 1.0% 0 1.0% 0;
+				}
+				padding: 1% 0 0 0;
+				h4 {
+					padding: 1.0%;
+					font-size: 1.25rem;
+				}
+				a {
+					font-size: 1.0rem;
+				}
+				a.btn-social {
+					font-size: 2rem;
+				}
+				a.copyright-text {
+					padding: 0;
+					margin: 0;
+				}
+			}
+		}
 	}
 }

@@ -1,5 +1,6 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300");
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -179,4 +180,44 @@ body {
   margin: 0.0rem 0.5rem 0.0rem 0.5rem;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   background-color: #cccccc;
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .page-section {
+    padding: 1.0% 0 0.5% 0;
+    margin: auto 0 auto 0;
+  }
+  #omar-nav .navbar-logo {
+    width: 75px;
+    height: auto;
+  }
+  #omar-nav .navbar-brand {
+    font-size: 1.0rem;
+  }
+  #intro-section h1 {
+    font-size: 1.25rem;
+  }
+  #intro-section h3 {
+    font-size: 1.0rem;
+  }
+  footer.footer div.container div.row {
+    padding: 1% 0 0 0;
+  }
+  footer.footer div.container div.row div {
+    padding: 1.0% 0 1.0% 0;
+  }
+  footer.footer div.container div.row h4 {
+    padding: 1.0%;
+    font-size: 1.25rem;
+  }
+  footer.footer div.container div.row a {
+    font-size: 1.0rem;
+  }
+  footer.footer div.container div.row a.btn-social {
+    font-size: 2rem;
+  }
+  footer.footer div.container div.row a.copyright-text {
+    padding: 0;
+    margin: 0;
+  }
 }

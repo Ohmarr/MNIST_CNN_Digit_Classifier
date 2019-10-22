@@ -42,7 +42,7 @@
 	var onWrite = function() {
 		drawingObject.lineWidth = drawingObject.lineWidth;
 		drawingObject.lineJoin = 'miter';
-		
+
 		drawingObject.lineCap = 'round';
 		drawingObject.strokeStyle = drawingObject.color;
 
@@ -78,5 +78,5 @@
 			output.innerHTML = this.value;
 			drawingObject.lineWidth = $(this).val();
 		};
-	};
+	}
 })();

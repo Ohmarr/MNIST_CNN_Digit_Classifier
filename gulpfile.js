@@ -21,7 +21,7 @@ function browserSync(done) {
 		server: {
 			baseDir: './'
 		},
-		port: 8080 
+		port: 8080
 	});
 	done();
 }
@@ -83,7 +83,7 @@ function copyLibraries() {
 function watchFiles() {
 	gulp.watch('./assets/scss/**/*.scss', css);
 	gulp.watch('./assets/js/**/*.js', gulp.series(scriptsLint, scripts));
-	gulp.watch('./index.html', browserSyncReload); 
+	gulp.watch('./index.html', browserSyncReload);
 }
 // define complex tasks
 const js = gulp.series(scriptsLint, scripts, copyLibraries);
