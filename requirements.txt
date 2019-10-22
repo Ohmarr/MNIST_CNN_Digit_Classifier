@@ -50,9 +50,9 @@ MarkupSafe==1.1.1
 marshmallow==2.18.0
 matplotlib==3.1.1
 mistune==0.8.4
-mkl-fft
-mkl-random
-mkl-service
+# mkl-fft
+# mkl-random
+# mkl-service
 nbconvert==5.6.0
 nbformat==4.4.0
 networkx==2.3
