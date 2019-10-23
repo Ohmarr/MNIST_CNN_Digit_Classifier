@@ -5,7 +5,7 @@ from tensorflow.python.keras.backend import set_session
 # specified instead of vague next line
 from tensorflow.python.keras.models import load_model
 # from keras.models import load_model
-import tensorflow as tf
+import tensorflow
 from numpy import asarray
 from PIL import Image as Image_PIL  # PYTHON IMAGING LIBRARY
 
@@ -87,7 +87,7 @@ def make_prediction(image_array):
 	'''
 	Makes a Prediction Using Our Model & Returns it
 	'''
-	#     Issue w/ model.predict in Flask; using tf.graph instead
+	#     Issue w/ model.predict in Flask; using tensorflow.graph instead
 	#     prediction = model.predict(image_array).argmax()
 	#     print(f'The predicted number is {prediction}')
 	accross_columns = 1
@@ -109,10 +109,10 @@ def make_prediction(image_array):
 filepath = 'temp/image_canvas.png'  # location of file output from canvas
 model_path = 'MNIST_CNN.h5'
 
-session = tf.Session()
-# session = tf.compat.v1.Session
-graph = tf.get_default_graph()
-# graph = tf.compat.v1.get_default_graph()
+session = tensorflow.Session()
+# session = tensorflow.compat.v1.Session
+graph = tensorflow.get_default_graph()
+# graph = tensorflow.compat.v1.get_default_graph()
 
 # SESSION MUST BE SET PRIOR TO LOADING MODEL & BEFORE EACH PREDICTION
 set_session(session)
