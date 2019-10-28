@@ -5,7 +5,9 @@ from tensorflow.python.keras.backend import set_session
 # specified instead of vague next line
 from tensorflow.python.keras.models import load_model
 # from keras.models import load_model
-import tensorflow
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+# import tensorflow
 from numpy import asarray
 from PIL import Image as Image_PIL  # PYTHON IMAGING LIBRARY
 
@@ -109,9 +111,9 @@ def make_prediction(image_array):
 filepath = 'temp/image_canvas.png'  # location of file output from canvas
 model_path = 'MNIST_CNN.h5'
 
-session = tensorflow.Session()
+session = tf.Session()
 # session = tensorflow.compat.v1.Session
-graph = tensorflow.get_default_graph()
+graph = tf.get_default_graph()
 # graph = tensorflow.compat.v1.get_default_graph()
 
 # SESSION MUST BE SET PRIOR TO LOADING MODEL & BEFORE EACH PREDICTION

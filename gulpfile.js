@@ -1,17 +1,17 @@
 'use strict';
 
 // Load plugins;
+const autoprefixer = require('autoprefixer');
+const browsersync = require('browser-sync').create();
+const cssnano = require('cssnano');
 const del = require('del');
-const sass = require('gulp-sass');
+const eslint = require('gulp-eslint');
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
-const cssnano = require('cssnano');
-const webpack = require('webpack');
 const rename = require('gulp-rename');
-const eslint = require('gulp-eslint');
-const browsersync = require('browser-sync').create();
-const autoprefixer = require('autoprefixer');
+const sass = require('gulp-sass');
+const webpack = require('webpack');
 const webpackconfig = require('./webpack.config.js');
 const webpackstream = require('webpack-stream');
 
@@ -32,7 +32,7 @@ function browserSyncReload(done) {
 }
 // Clean Old Assets - Remove previously compiled files before re-compiling
 function clean() {
-	return del([ './static/' ]);
+	return del([ './static/', './templates/' ]);
 }
 // SASS to CSS task
 function css() {
@@ -47,7 +47,7 @@ function css() {
 		.pipe(browsersync.stream());
 }
 
-// Lint scripts
+// Lint JS scripts
 function scriptsLint() {
 	return gulp
 		.src([ './assets/js/**/*.js', './gulpfile.js' ])
@@ -58,37 +58,44 @@ function scriptsLint() {
 }
 // Transpile, concatenate and minify JS scripts
 function scripts() {
+	return	gulp
+		.src([ './assets/js/**/*.js' ])
+		.pipe(plumber())
+		.pipe(webpackstream(webpackconfig, webpack))
+		.pipe(gulp.dest('./static/js/'))
+		.pipe(browsersync.stream())
+}
+// Download Latest Copy of jquery & fontawesome,; 
+function copyLibraries() {
 	return (
 		gulp
-			.src([ './assets/js/**/*.js' ])
-			.pipe(plumber())
-			.pipe(webpackstream(webpackconfig, webpack))
-			// folder only, filename is specified in webpack config
-			.pipe(gulp.dest('./static/js/'))
-			.pipe(browsersync.stream())
+			.src('./node_modules/@fortawesome/fontawesome-free/css/**/*')
+			.pipe(gulp.dest('./static/css/vendor/fontawesome-free/css')),
+		gulp
+			.src('./node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
+			.pipe(gulp.dest('./static/css/vendor/fontawesome-free/webfonts')),
+		gulp
+			.src('./node_modules/jquery/dist/jquery.min.js')
+			.pipe(gulp.dest('./static/js')) // will install the latest version of jquery)
 	);
 }
 // Download Latest Copy of jquery
-function copyLibraries() {
-	gulp
-		.src('./node_modules/@fortawesome/fontawesome-free/css/**/*')
-		.pipe(gulp.dest('./static/css/vendor/fontawesome-free/css'));
-	gulp
-		.src('./node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
-		.pipe(gulp.dest('./static/css/vendor/fontawesome-free/webfonts'));
-	return gulp.src('./node_modules/jquery/dist/jquery.min.js').pipe(gulp.dest('./static/js')); // will install the latest version of jquery)
+function copyHtml() {
+	return gulp
+		.src('./index.html')
+		.pipe(gulp.dest('./templates'));
 }
 
 // Watch (& Reload) if changes made to files
 function watchFiles() {
 	gulp.watch('./assets/scss/**/*.scss', css);
 	gulp.watch('./assets/js/**/*.js', gulp.series(scriptsLint, scripts));
-	gulp.watch('./index.html', browserSyncReload);
+	gulp.watch('./index.html', browserSyncReload, copyHtml);
 }
 // define complex tasks
 const js = gulp.series(scriptsLint, scripts, copyLibraries);
-const build = gulp.series(clean, copyLibraries, gulp.parallel(css, js));
-const watch = gulp.series(clean, copyLibraries, css, js, gulp.parallel(watchFiles, browserSync));
+const build = gulp.series(clean, copyLibraries, copyHtml, gulp.parallel(css, js));
+const watch = gulp.series(clean, copyLibraries, copyHtml, css, js, gulp.parallel(watchFiles, browserSync));
 
 // export tasks
 exports.css = css;

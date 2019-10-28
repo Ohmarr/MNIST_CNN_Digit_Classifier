@@ -4,87 +4,87 @@
 		<meta charset='utf-8'>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, shrink-to-fit=no'>
 		<meta http-equiv='X-UA-Compatible' content='ie=edge'>
-		<meta name="description" content="Digit Recognizer Application">
-		<meta name="author" content="Omar Abusheikh">
-		<meta name="keywords" content="portfolio website machine learning deep learning data science neural networks datascience nlp ocr computer vision">
+		<meta name='description' content='Digit Recognizer Application'>
+		<meta name='author' content='Omar Abusheikh'>
+		<meta name='keywords' content='portfolio website machine learning deep learning data science neural networks datascience nlp ocr computer vision'>
 
 
 		<title>Integer Classifier Application</title>	
-		<link href="./static/css/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-		<link href="./static/css/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+		<link href='./static/css/vendor/fontawesome-free/css/all.min.css' rel='stylesheet' type='text/css'>
+		<link href='./static/css/vendor/fontawesome-free/css/all.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
 
 
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+		<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+ 
 		<link rel='stylesheet' href='./static/css/style.min.css'>
 		<!-- <link rel='stylesheet' href='{{ url_for('static',filename='style.css') }}'> -->
 	</head>
 <body>
 	<div class='content'>
 <!-- ––––––––––––––––––––––––––––––––––––– * NAVBAR  * ––––––––––––––––––––– -->
-	<nav id="omar-nav" class="navbar">
-		<a href="https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier">
-			<img class="navbar-logo" src="https://ohmarr.github.io/img/oa-logo-reverse.png" alt="Omar Abusheikh Logo">
+	<nav id='omar-nav' class='navbar'>
+		<a href='https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier'>
+			<img class='navbar-logo' src='https://ohmarr.github.io/src/assets/oa-logo-reverse.png' alt='Omar Abusheikh Logo'>
 		</a>
-		<h2 class="navbar-brand">Digit predictor</h2>	
+		<h2 class='navbar-brand'>Digit predictorTESTAGAIN&AGAIN</h2>	
 	</nav>
 <!-- ––––––––––––––––––––––––––––––––––––– * introduction / instructions * ––––––––––––––––––––– -->
-<section id="intro-section" class="page-section">	
-<div class="container">
+<section id='intro-section' class='page-section'>	
+<div class='container'>
 		<h1>Handwritten Digit Recognition using Convolutional Neural Networks</h1>
 		<h3>Adjust the line width by dragging the slider. Current width: </h3>
-		<div class="row">
+		<div class='row'>
 			<span id='slider-value'></span>
 			<input id='slider-range' type='range' min='1' max='25' value='10'/>	
 		</div>
 	</div>
 </section>
 <!-- ––––––––––––––––––––––––––––––––––––– * canvas / predict / clear * ––––––––––––––––––––– -->
-<section id="canvas-section" class="page-section">
-	<div class="container">
+<section id='canvas-section' class='page-section'>
+	<div class='container'>
 		<canvas id='canvas'></canvas>
 		<h3>Write a number in the Canvas</h3>
-		<div class="row">
-			<button id="predict-button" class="btn" href='#' type='button'>Predict</button>	
-			<button id='clear-button' class="btn" type='button' value='Clear'>Clear</button>
+		<div class='row'>
+			<button id='predict-button' class='btn' href='#' type='button'>Predict</button>	
+			<button id='clear-button' class='btn' type='button' value='Clear'>Clear</button>
 		</div>
 	</div>
 </section>
 <!-- ––––––––––––––––––––––––––––––––––––– * result * ––––––––––––––––––––– -->
-<section id="result-section" class="page-section">
-	<div class="container">
+<section id='result-section' class='page-section'>
+	<div class='container'>
 			<h2 id='result'></h2>
 	</div>
 </section>
 </div>	
 <!-- ––––––––––––––––––––––––––––––––––––– * FOOTER / COPYRIGHT SECTION * ––––––––––––––––––––––––––––––––––––– -->
-<footer class="footer">
-		<div class="container">
-			<div class="row">
+<footer class='footer'>
+		<div class='container'>
+			<div class='row'>
 				<!-- Footer About Text -->
-				<div class="col-lg-4 col-12">
+				<div class='col-lg-4 col-12'>
 					<h4 >Direct Contact</h4>
-					<a href = "mailto: oabusheikh@gmail.com">oabusheikh@gmail.com</a><br>
-					<a href="tel:+15129639461">+1-512-963-9461</a>				
+					<a href = 'mailto: oabusheikh@gmail.com'>oabusheikh@gmail.com</a><br>
+					<a href='tel:+15129639461'>+1-512-963-9461</a>				
 				</div>
 				<!-- Footer Social Icons -->
-				<div class="col-lg-4 col-12">
+				<div class='col-lg-4 col-12'>
 					<h4 >Web</h4>
-					<a class="btn btn-social" href="https://www.linkedin.com/in/oabusheikh/" target= '_blank'><i class="fab fa-fw fa-linkedin"></i></a>
-					<a class="btn btn-social" href="https://github.com/Ohmarr" target= '_blank'><i class="fab fa-fw fa-github"></i></a>
-					<a class="btn btn-social" href="https://Ohmarr.github.io" target= '_blank'><i class="far fa-grin-alt"></i></a>
+					<a class='btn btn-social' href='https://www.linkedin.com/in/oabusheikh/' target= '_blank'><i class='fab fa-fw fa-linkedin'></i></a>
+					<a class='btn btn-social' href='https://github.com/Ohmarr' target= '_blank'><i class='fab fa-fw fa-github'></i></a>
+					<a class='btn btn-social' href='https://Ohmarr.github.io' target= '_blank'><i class='far fa-grin-alt'></i></a>
 				</div>
 				<!-- Footer Location -->
-				<div class="col-lg-4 col-12">
+				<div class='col-lg-4 col-12'>
 					<h4 >LOCATION</h4>
-					<p class="lead">Austin, Texas 78741</p>
+					<p class='lead'>Austin, Texas 78741</p>
 				</div>
-				<div class="container copyright">
+				<div class='container copyright'>
 				<!-- Footer Location -->
-					<a id="copyright-text" href = "http://Ohmarr.github.io">
+					<a id='copyright-text' href = 'http://Ohmarr.github.io'>
 						<small>Copyright &copy; Ohmarr.github.io 2019</small>
 					</a>
 				</div>
@@ -118,7 +118,7 @@
 			);
 		});  
 	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'></script>
+	<!-- <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script> -->
 </body>
 </html>
