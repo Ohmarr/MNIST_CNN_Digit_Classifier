@@ -1,1 +1,100 @@
-!function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t){!function(){var e=document.querySelector("#canvas");e.height=e.width=280;const t=e.getContext("2d");var n,o;t.color="black",t.lineWidth=10,t.lineJoin=t.lineCap="miter",n=o={x:0,y:0},function(){$("#clear-button").on("click",(function(){t.clearRect(0,0,e.width,e.height),t.fillStyle="#E6E6E6",t.fillRect(0,0,e.width,e.height)}));var n=document.getElementById("slider-range"),o=document.getElementById("slider-value");o.innerHTML=n.value,n.oninput=function(){o.innerHTML=this.value,t.lineWidth=$(this).val()}}(),e.addEventListener("mousemove",(function(e){n.x=o.x,n.y=o.y,o.x=e.pageX-this.offsetLeft,o.y=e.pageY-this.offsetTop}),!1),e.addEventListener("mousedown",(function(){e.addEventListener("mousemove",r,!1)}),!1),e.addEventListener("mouseup",(function(){e.removeEventListener("mousemove",r,!1)}),!1);var r=function(){t.lineWidth=t.lineWidth,t.lineJoin="miter",t.lineCap="round",t.strokeStyle=t.color,t.beginPath(),t.moveTo(n.x,n.y),t.lineTo(o.x,o.y),t.closePath(),t.stroke()}}()}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/js/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./assets/js/index.js":
+/*!****************************!*\
+  !*** ./assets/js/index.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("(function() {\n\tvar canvas = document.querySelector('#canvas');\n\tcanvas.height = canvas.width = 280;\n\n\tconst drawingObject = canvas.getContext('2d');\n\t// drawingObject.fillStyle = '#FF0000';\n\tdrawingObject.color = 'black';\n\tdrawingObject.lineWidth = 10;\n\tdrawingObject.lineJoin = drawingObject.lineCap = 'miter';\n\n\tvar lastMouse, Mouse;\n\tlastMouse = Mouse = { x: 0, y: 0 };\n\n\tprepareCanvas();\n\n\tcanvas.addEventListener(\n\t\t'mousemove',\n\t\tfunction(e) {\n\t\t\tlastMouse.x = Mouse.x;\n\t\t\tlastMouse.y = Mouse.y;\n\n\t\t\tMouse.x = e.pageX - this.offsetLeft;\n\t\t\tMouse.y = e.pageY - this.offsetTop;\n\t\t},\n\t\tfalse\n\t);\n\tcanvas.addEventListener(\n\t\t'mousedown',\n\t\tfunction() {\n\t\t\tcanvas.addEventListener('mousemove', onWrite, false);\n\t\t},\n\t\tfalse\n\t);\n\tcanvas.addEventListener(\n\t\t'mouseup',\n\t\tfunction() {\n\t\t\tcanvas.removeEventListener('mousemove', onWrite, false);\n\t\t},\n\t\tfalse\n\t);\n\n\tvar onWrite = function() {\n\t\tdrawingObject.lineWidth = drawingObject.lineWidth;\n\t\tdrawingObject.lineJoin = 'miter';\n\n\t\tdrawingObject.lineCap = 'round';\n\t\tdrawingObject.strokeStyle = drawingObject.color;\n\n\t\tdrawingObject.beginPath();\n\t\tdrawingObject.moveTo(lastMouse.x, lastMouse.y);\n\t\tdrawingObject.lineTo(Mouse.x, Mouse.y);\n\t\tdrawingObject.closePath();\n\t\tdrawingObject.stroke();\n\t};\n\t/* CLEAR BUTTON */\n\tfunction prepareCanvas() {\n\t\tvar clearButton = $('#clear-button');\n\n\t\tclearButton.on('click', function() {\n\t\t\tdrawingObject.clearRect(0, 0, canvas.width, canvas.height);\n\t\t\tdrawingObject.fillStyle = '#E6E6E6';\n\t\t\t// drawingObject.font = '30px Arial';\n\t\t\t// drawingObject.fillText = ('Texsting', canvas.width/2, canvas.height/2);\n\t\t\t// drawingObject.textAlign = 'center';\n\t\t\tdrawingObject.fillRect(0, 0, canvas.width, canvas.height);\n\t\t});\n\t\t// /* COLOR SELECTOR */\n\t\t// $('#colors').change(function() {\n\t\t// \tvar color = $('#colors').val();\n\t\t// \tdrawingObject.color = color;\n\t\t// });\n\n\t\t/* FONT WIDTH ADJUSTER */\n\t\tvar slider = document.getElementById('slider-range');\n\t\tvar output = document.getElementById('slider-value');\n\t\toutput.innerHTML = slider.value;\n\t\tslider.oninput = function() {\n\t\t\toutput.innerHTML = this.value;\n\t\t\tdrawingObject.lineWidth = $(this).val();\n\t\t};\n\t}\n})();\n\n\n//# sourceURL=webpack:///./assets/js/index.js?");
+
+/***/ })
+
+/******/ });

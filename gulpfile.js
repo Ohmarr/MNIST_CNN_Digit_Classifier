@@ -1,6 +1,6 @@
 'use strict';
 
-// Load plugins;
+/* –––––––––––––––––––– * Load plugins * –––––––––––––––––––– */  
 const autoprefixer = require('autoprefixer');
 const browsersync = require('browser-sync').create();
 const cssnano = require('cssnano');
@@ -15,8 +15,11 @@ const webpack = require('webpack');
 const webpackconfig = require('./webpack.config.js');
 const webpackstream = require('webpack-stream');
 
-// BrowserSync Initiation
+/* –––––––––––––––––––– * Task Definitions * –––––––––––––––––––– */  
 function browserSync(done) {
+	/** 
+	 * Initiate BrowserSync
+	 **/
 	browsersync.init({
 		server: {
 			baseDir: './'
@@ -25,17 +28,27 @@ function browserSync(done) {
 	});
 	done();
 }
-// BrowserSync Refresh (on update)
+
 function browserSyncReload(done) {
+	/** 
+	 * Browser Refresh When Updates Deteceted
+	 **/
 	browsersync.reload();
 	done();
 }
-// Clean Old Assets - Remove previously compiled files before re-compiling
-function clean() {
+
+function cleanDirectories() {
+	/** 
+	 * Clean Old Assets - Remove previously compiled files before re-compiling
+	 **/
 	return del([ './static/', './templates/' ]);
 }
-// SASS to CSS task
-function css() {
+
+
+function cssTasks() {
+	/** 
+	 * Process scss & convert to css; 
+	 **/
 	return gulp
 		.src('./assets/scss/**/*.scss')
 		.pipe(plumber())
@@ -47,8 +60,10 @@ function css() {
 		.pipe(browsersync.stream());
 }
 
-// Lint JS scripts
 function scriptsLint() {
+	/** 
+	 * Linting JS scripts;
+	 **/
 	return gulp
 		.src([ './assets/js/**/*.js', './gulpfile.js' ])
 		.pipe(plumber())
@@ -56,51 +71,70 @@ function scriptsLint() {
 		.pipe(eslint.format())
 		.pipe(eslint.failAfterError());
 }
-// Transpile, concatenate and minify JS scripts
-function scripts() {
-	return	gulp
+
+function scriptsPrep() {
+	/** 
+	 * Transpile, Concatenate & Minify javaScript scripts; 
+	 **/
+	return gulp
 		.src([ './assets/js/**/*.js' ])
 		.pipe(plumber())
 		.pipe(webpackstream(webpackconfig, webpack))
 		.pipe(gulp.dest('./static/js/'))
-		.pipe(browsersync.stream())
+		.pipe(browsersync.stream());
 }
-// Download Latest Copy of jquery & fontawesome,; 
+
 function copyLibraries() {
+	/** 
+	 * Task Copies Latest jquery & fontawesome packages; 
+	 **/
 	return (
 		gulp
 			.src('./node_modules/@fortawesome/fontawesome-free/css/**/*')
-			.pipe(gulp.dest('./static/css/vendor/fontawesome-free/css')),
+			.pipe(gulp
+				.dest('./static/css/vendor/fontawesome-free/css')),
 		gulp
 			.src('./node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
-			.pipe(gulp.dest('./static/css/vendor/fontawesome-free/webfonts')),
+			.pipe(gulp
+				.dest('./static/css/vendor/fontawesome-free/webfonts')),
 		gulp
 			.src('./node_modules/jquery/dist/jquery.min.js')
-			.pipe(gulp.dest('./static/js')) // will install the latest version of jquery)
+			.pipe(gulp
+				.dest('./static/js'))
 	);
 }
-// Download Latest Copy of jquery
+
 function copyHtml() {
+	/** task makes a copy of 'index.html' to 'templates directory'
+	 * this is needed for Flask to run
+	 **/
 	return gulp
 		.src('./index.html')
-		.pipe(gulp.dest('./templates'));
+		.pipe(gulp
+			.dest('./templates'));
 }
 
-// Watch (& Reload) if changes made to files
 function watchFiles() {
-	gulp.watch('./assets/scss/**/*.scss', css);
-	gulp.watch('./assets/js/**/*.js', gulp.series(scriptsLint, scripts));
+	/** 
+	 * Watch (& Reload) if changes made to files
+	 **/
+	gulp.watch('./assets/scss/**/*.scss', cssTasks);
+	gulp.watch('./assets/js/**/*.js', gulp.series(scriptsLint, scriptsPrep));
 	gulp.watch('./index.html', browserSyncReload, copyHtml);
 }
+
+/* –––––––––––––––––––– * COMPLEX TASKS & EXPORTS * –––––––––––––––––––– */  
+
 // define complex tasks
-const js = gulp.series(scriptsLint, scripts, copyLibraries);
-const build = gulp.series(clean, copyLibraries, copyHtml, gulp.parallel(css, js));
-const watch = gulp.series(clean, copyLibraries, copyHtml, css, js, gulp.parallel(watchFiles, browserSync));
+const javaScriptTasks = gulp.series(scriptsLint, scriptsPrep, copyLibraries);
+const build = gulp.series(cleanDirectories, copyLibraries, copyHtml, gulp.parallel(cssTasks, javaScriptTasks));
+const watch = gulp.series(cleanDirectories, copyLibraries, copyHtml, cssTasks, javaScriptTasks, gulp.parallel(watchFiles, browserSync));
 
 // export tasks
-exports.css = css;
-exports.js = js;
-exports.clean = clean;
+exports.css = cssTasks;
+exports.js = javaScriptTasks;
+exports.clean = cleanDirectories;
 exports.build = build;
 exports.watch = watch;
+
 exports.default = build;

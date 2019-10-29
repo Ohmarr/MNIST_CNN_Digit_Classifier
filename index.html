@@ -10,7 +10,7 @@
 
 
 		<title>Integer Classifier Application</title>	
-		<link href='./static/css/vendor/fontawesome-free/css/all.min.css' rel='stylesheet' type='text/css'>
+		<!-- <link href='./static/css/vendor/fontawesome-free/css/all.min.css' rel='stylesheet' type='text/css'> -->
 		<link href='./static/css/vendor/fontawesome-free/css/all.min.css' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -24,74 +24,73 @@
 	</head>
 <body>
 	<div class='content'>
-<!-- ––––––––––––––––––––––––––––––––––––– * NAVBAR  * ––––––––––––––––––––– -->
-	<nav id='omar-nav' class='navbar'>
-		<a href='https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier'>
-			<img class='navbar-logo' src='https://ohmarr.github.io/src/assets/oa-logo-reverse.png' alt='Omar Abusheikh Logo'>
-		</a>
-		<h2 class='navbar-brand'>Digit predictorTESTAGAIN&AGAIN</h2>	
-	</nav>
-<!-- ––––––––––––––––––––––––––––––––––––– * introduction / instructions * ––––––––––––––––––––– -->
-<section id='intro-section' class='page-section'>	
-<div class='container'>
-		<h1>Handwritten Digit Recognition using Convolutional Neural Networks</h1>
-		<h3>Adjust the line width by dragging the slider. Current width: </h3>
-		<div class='row'>
-			<span id='slider-value'></span>
-			<input id='slider-range' type='range' min='1' max='25' value='10'/>	
-		</div>
-	</div>
-</section>
-<!-- ––––––––––––––––––––––––––––––––––––– * canvas / predict / clear * ––––––––––––––––––––– -->
-<section id='canvas-section' class='page-section'>
-	<div class='container'>
-		<canvas id='canvas'></canvas>
-		<h3>Write a number in the Canvas</h3>
-		<div class='row'>
-			<button id='predict-button' class='btn' href='#' type='button'>Predict</button>	
-			<button id='clear-button' class='btn' type='button' value='Clear'>Clear</button>
-		</div>
-	</div>
-</section>
-<!-- ––––––––––––––––––––––––––––––––––––– * result * ––––––––––––––––––––– -->
-<section id='result-section' class='page-section'>
-	<div class='container'>
-			<h2 id='result'></h2>
-	</div>
-</section>
-</div>	
-<!-- ––––––––––––––––––––––––––––––––––––– * FOOTER / COPYRIGHT SECTION * ––––––––––––––––––––––––––––––––––––– -->
-<footer class='footer'>
-		<div class='container'>
-			<div class='row'>
-				<!-- Footer About Text -->
-				<div class='col-lg-4 col-12'>
-					<h4 >Direct Contact</h4>
-					<a href = 'mailto: oabusheikh@gmail.com'>oabusheikh@gmail.com</a><br>
-					<a href='tel:+15129639461'>+1-512-963-9461</a>				
-				</div>
-				<!-- Footer Social Icons -->
-				<div class='col-lg-4 col-12'>
-					<h4 >Web</h4>
-					<a class='btn btn-social' href='https://www.linkedin.com/in/oabusheikh/' target= '_blank'><i class='fab fa-fw fa-linkedin'></i></a>
-					<a class='btn btn-social' href='https://github.com/Ohmarr' target= '_blank'><i class='fab fa-fw fa-github'></i></a>
-					<a class='btn btn-social' href='https://Ohmarr.github.io' target= '_blank'><i class='far fa-grin-alt'></i></a>
-				</div>
-				<!-- Footer Location -->
-				<div class='col-lg-4 col-12'>
-					<h4 >LOCATION</h4>
-					<p class='lead'>Austin, Texas 78741</p>
-				</div>
-				<div class='container copyright'>
-				<!-- Footer Location -->
-					<a id='copyright-text' href = 'http://Ohmarr.github.io'>
-						<small>Copyright &copy; Ohmarr.github.io 2019</small>
-					</a>
+	<!-- ––––––––––––––––––––––––––––––––––––– * NAVBAR  * ––––––––––––––––––––– -->
+		<nav id='omarNav' class='navbar'>
+			<a href='https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier'>
+				<img class='grow navbar-logo' src='https://ohmarr.github.io/src/assets/oa-logo-reverse.png' alt='Omar Abusheikh Logo'>
+			</a>
+			<a href='https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier'>
+				<h2 class='navbar-brand grow'>Digit Predictor</h2>
+			</a>
+				
+		</nav>
+		<!-- ––––––––––––––––––––––––––––––––––––– * introduction / instructions * ––––––––––––––––––––– -->
+		<section id='intro-section' class='page-section'>	
+			<div class='container'>
+				<h1>Handwritten Digit Recognition using Convolutional Neural Networks</h1>
+				<h3>Adjust the line width by dragging the slider. Current width: </h3>
+				<div class='row'>
+					<span id='slider-value'></span>
+					<input id='slider-range' type='range' min='1' max='25' value='10'/>	
 				</div>
 			</div>
-		</div>
+		</section>
+		<!-- ––––––––––––––––––––––––––––––––––––– * canvas / predict / clear * ––––––––––––––––––––– -->
+		<section id='canvas-section' class='page-section'>
+			<div class='container'>
+				<canvas id='canvas'></canvas>
+				<h3>Write a number in the Canvas</h3>
+				<div class='row'>
+					<button id='predict-button' class='btn grow' href='#' type='button'>Predict</button>	
+					<button id='clear-button' class='btn grow' type='button' value='Clear'>Clear</button>
+				</div>
+			</div>
+		</section>
+		<!-- ––––––––––––––––––––––––––––––––––––– * result * ––––––––––––––––––––– -->
+		<section id='result-section' class='page-section'>
+			<div class='container'>
+					<h2 id='result'></h2>
+			</div>
+		</section>
+	</div>	
+	<!-- ––––––––––––––––––––––––––––––––––––– * FOOTER / COPYRIGHT SECTION * ––––––––––––––––––––––––––––––––––––– -->
+	<footer class='row'>
+			<!-- Footer About Text -->
+			<div class='col-lg-4 col-12'>
+				<h4 >Direct Contact</h4>
+				<a href = 'mailto: oabusheikh@gmail.com'>oabusheikh@gmail.com</a><br>
+				<a href='tel:+15129639461'>+1-512-963-9461</a>				
+			</div>
+			<!-- Footer Social Icons -->
+			<div id="footer-links-section" class='col-lg-4 col-12'>
+				<h4 >Web</h4>
+				<a class='btn grow btn-social' href='https://www.linkedin.com/in/oabusheikh/' target= '_blank'><i class='grow fab fa-fw fa-linkedin'></i></a>
+				<a class='btn grow btn-social' href='https://github.com/Ohmarr' target= '_blank'><i class='grow fab fa-fw fa-github'></i></a>
+				<a class='btn grow btn-social' href='https://Ohmarr.github.io' target= '_blank'><i class='grow far fa-grin-alt'></i></a>
+			</div>
+			<!-- Footer Location -->
+			<div class='col-lg-4 col-12'>
+				<h4 >LOCATION</h4>
+				<p class='lead'>Austin, Texas 78741</p>
+			</div>
+			<div id="footer-copyright-section" class='container'>
+			<!-- Footer Location -->
+				<a id='copyright-text' href = 'http://Ohmarr.github.io'>
+					<small>Copyright &copy; Ohmarr.github.io 2019</small>
+				</a>
+			</div>
 	</footer>	
-			
+				
 	<!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<script src='./static/js/jquery.min.js'></script>
 	<script src='./static/js/index.js'></script>

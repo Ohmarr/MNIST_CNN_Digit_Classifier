@@ -1,4 +1,11 @@
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300");
+.grow {
+  transition: all .2s ease-in-out !important;
+}
+
+.grow:hover {
+  transform: scale(1.15);
+}
+
 html,
 body {
   height: 100%;
@@ -50,24 +57,31 @@ body {
   padding: 2.0% 0 1.0% 0;
 }
 
-#omar-nav {
+#omarNav {
   background-color: black;
   padding: 1% 0 1% 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
 }
 
-#omar-nav .navbar-brand {
-  text-transform: uppercase;
-  color: white;
-  margin: 0 5% 0 0;
-}
-
-#omar-nav .navbar-logo {
+#omarNav .navbar-logo {
   width: 100px;
   height: auto;
+  color: white;
 }
 
-#omar-nav .navbar-logo:hover {
-  font-weight: bold;
+#omarNav .navbar-logo.grow:hover {
+  filter: invert(87%) sepia(53%) saturate(4264%) hue-rotate(348deg) brightness(85%) contrast(107%);
+}
+
+#omarNav .navbar-brand {
+  text-transform: uppercase;
+  color: white;
+  margin: 0 1.0rem 0 0;
+}
+
+#omarNav .navbar-brand.grow:hover {
+  color: #6d0707;
 }
 
 #intro-section {
@@ -132,7 +146,60 @@ body {
   text-align: center;
 }
 
-.footer {
+footer {
+  padding: 0 0 1% 0;
+  background-color: black;
+  color: white;
+  place-content: center;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: #6d0707;
+}
+
+footer div {
+  padding: 1% 0.0rem 1% 0.0rem;
+}
+
+footer h4 {
+  text-transform: uppercase;
+  padding: 3% 0 3% 0;
+}
+
+footer #footer-links-section .btn-social {
+  align-items: center;
+  background-color: #e6e6e6;
+  border-radius: 50%;
+  display: inline-flex;
+  font-size: 2.5rem;
+  height: 75px;
+  justify-content: center;
+  margin: 0.0rem 0.5rem 0.0rem 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  width: 75px;
+  border: 0.2rem solid #6d0707;
+}
+
+footer #footer-copyright-section {
+  background-color: black;
+  color: #6d0707;
+  padding: 1% 0 1% 0;
+  text-align: center;
+  place-content: center;
+}
+
+footer #footer-copyright-section #copyright-text {
+  color: #6d0707;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+footer {
   flex-shrink: 0;
   padding: 0 0 0 0;
   background-color: black;
@@ -141,20 +208,24 @@ body {
   text-align: center;
 }
 
-.footer div {
+footer div {
   padding: 1.0rem 0.0rem 1.0rem 0.0rem;
 }
 
-.footer div div a {
+footer div a {
   color: white;
 }
 
-.footer h4 {
+footer div a:hover {
+  color: #6d0707;
+}
+
+footer h4 {
   text-transform: uppercase;
   padding: 3% 0 3% 0;
 }
 
-.footer .copyright {
+footer #footer-copyright-section {
   background-color: black;
   color: #6d0707;
   padding: 1% 0 1% 0;
@@ -162,13 +233,13 @@ body {
   place-content: center;
 }
 
-.footer .copyright #copyright-text {
+footer #footer-copyright-section #copyright-text {
   color: #6d0707;
   font-size: 1.25rem;
   font-weight: 300;
 }
 
-.footer .btn-social {
+footer .btn-social {
   color: #6d0707;
   border-radius: 50%;
   display: inline-flex;
@@ -187,11 +258,11 @@ body {
     padding: 1.0% 0 0.5% 0;
     margin: auto 0 auto 0;
   }
-  #omar-nav .navbar-logo {
+  #omarNav .navbar-logo {
     width: 75px;
     height: auto;
   }
-  #omar-nav .navbar-brand {
+  #omarNav .navbar-brand {
     font-size: 1.0rem;
   }
   #intro-section h1 {
@@ -200,23 +271,23 @@ body {
   #intro-section h3 {
     font-size: 1.0rem;
   }
-  footer.footer div.container div.row {
+  footer {
     padding: 1% 0 0 0;
   }
-  footer.footer div.container div.row div {
+  footer div {
     padding: 1.0% 0 1.0% 0;
   }
-  footer.footer div.container div.row h4 {
+  footer h4 {
     padding: 1.0%;
     font-size: 1.25rem;
   }
-  footer.footer div.container div.row a {
+  footer a {
     font-size: 1.0rem;
   }
-  footer.footer div.container div.row a.btn-social {
-    font-size: 2rem;
+  footer a.btn-social {
+    font-size: 2.0rem;
   }
-  footer.footer div.container div.row a.copyright-text {
+  footer a#copyright-text {
     padding: 0;
     margin: 0;
   }

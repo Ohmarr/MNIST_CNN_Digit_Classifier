@@ -1,32 +1,39 @@
-// #id, .class
+// VARIABLES & GLOBAL COMPONENTS
+// 0=0, 1=0.25rem, 2=0.5rem, 3=1.0rem(unit), 4=1.5rem, 5=3.0rem
 
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300');
-
-//BOOTSTRAP NOTES:
-// 	0 - sets margin or padding to 0
-// 	1 - sets margin or padding to .25rem (4px if font-size is 16px)
-// 	2 - sets margin or padding to .5rem (8px if font-size is 16px)
-// 	3 - sets margin or padding to 1rem (16px if font-size is 16px)
-// 	4 - sets margin or padding to 1.5rem (24px if font-size is 16px)
-// 	5 - sets margin or padding to 3rem (48px if font-size is 16px)
-// 	auto - sets margin to auto
-
-// Set custom colors
-$dark-grey: #273b50 !default;
-$UT-orange: #bf5700;
-$UT-dk-blue: #333f48;
+//VARIABLES
+$font-1: 'Montserrat', sans-serif;
+$font-2: 'Lato', sans-serif;
+$font-3: 'Comfortaa', cursive;
 $Sam-Parker-Grey: #333333;
 $Omar-Drk-Red: #6d0707;
-
-// Override Bootstrap primary and secondary colors
-$primary: white !default;
-$secondary: black !default;
+$primary: white;
+$secondary: black;
 $tertiary: $Omar-Drk-Red;
-$quaternary: #009900;
-$quinary: $Omar-Drk-Red;
-$septenary: #0099ea;
+$quaternary: #333333;
+$quinary: #009900;
+$senary: $Sam-Parker-Grey;
+$septenary: $primary;
+$octonary: $primary;
+$nonary: $primary;
+$denary: #ffffff;
 
-//  quinary, senary, septenary, octonary, nonary, and denary
+$divider_width: 12.0rem;
+$divider_height: 0.3333rem;
+$project_item_width: 25.0rem;
+
+// Override Bootstrap input/button variables
+$input-btn-border-width: 0.125rem;
+
+// GLOBAL CLASSES
+
+.grow {
+	transition: all .2s ease-in-out !important;
+	&:hover {
+		transform: scale(1.15);
+	}
+}
+
 html,
 body {
 	// margin: 0;
@@ -76,24 +83,28 @@ body {
 	padding: 2.0% 0 1.0% 0;
 }
 
-#omar-nav {
+#omarNav {
 	background-color: $secondary;
 	padding: 1% 0 1% 0;
-	.navbar-brand {
-		text-transform: uppercase;
-		color: $primary;
-		margin: 0 5% 0 0;
-	}
+	font-family: $font-1;
+	font-weight: 700;
 	.navbar-logo {
 		width: 100px;
 		height: auto;
-		&:hover {
-			// color: darken($tertiary, 5%);
-			// border-color: darken($tertiary, 5%);
-			// background-color: darken($primary, 20%);
-			font-weight: bold;
+		color: $primary;
+		&.grow:hover {
+			filter: invert(87%) sepia(53%) saturate(4264%) hue-rotate(348deg) brightness(85%) contrast(107%);
 		}
 	}
+	.navbar-brand {
+		text-transform: uppercase;
+		color: $primary;
+		margin: 0 1.0rem 0 0;
+		&.grow:hover {
+			color: $tertiary;
+		}
+	}
+
 }
 
 #intro-section {
@@ -160,7 +171,59 @@ body {
 	}
 }
 
-.footer {
+footer {
+	padding: 0 0 1% 0;
+	background-color: $secondary;
+	color: $primary;
+	place-content: center;
+	text-align: center;
+	a {
+		color: $primary;
+		&:hover {
+			color: $tertiary;
+		}
+	}
+	div {
+		padding: 1% 0.0rem 1% 0.0rem;
+	}
+	h4 {
+		text-transform: uppercase;
+		padding: 3% 0 3% 0;
+	}
+	#footer-links-section {
+		// Custom social buttons
+		.btn-social {
+			// display: block;
+
+			align-items: center;
+			background-color: darken($primary, 10%);
+			border-radius: 50%;
+			display: inline-flex;
+			font-size: 2.5rem; //4=1.5rem;
+			height: 75px; //5=3rem;
+			justify-content: center;
+			margin: 0.0rem 0.5rem 0.0rem 0.5rem;
+			padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+			width: 75px; //5=3rem;
+			border: 0.2rem solid $tertiary;
+		}
+	}
+	#footer-copyright-section {
+		background-color: $secondary;
+		color: $tertiary;
+		padding: 1% 0 1% 0;
+		text-align: center;
+		place-content: center;
+		#copyright-text {
+			color: $tertiary;
+			font-size: 1.25rem;
+			font-weight: 300;
+		}
+	}
+}
+
+
+footer {
 	flex-shrink: 0;
 	padding: 0 0 0 0;
 	background-color: $secondary;
@@ -169,16 +232,18 @@ body {
 	text-align: center;
 	div {
 		padding: 1.0rem 0.0rem 1.0rem 0.0rem;
-		div a {
+		a {
 			color: $primary;
+			&:hover {
+				color: $tertiary;
+			}
 		}
 	}
 	h4 {
 		text-transform: uppercase;
 		padding: 3% 0 3% 0;
 	}
-
-	.copyright {
+	#footer-copyright-section {
 		background-color: $secondary;
 		color: $tertiary;
 		padding: 1% 0 1% 0;
@@ -212,7 +277,7 @@ body {
 		padding: 1.0% 0 0.5% 0;
 		margin: auto 0 auto 0;
 	}
-	#omar-nav {
+	#omarNav {
 		.navbar-logo {
 			width: 75px;
 			height: auto;
@@ -230,28 +295,25 @@ body {
 			font-size: 1.0rem;
 		}
 	}
-	footer.footer {
-		div.container {
-			div.row {
-				div {
-					padding: 1.0% 0 1.0% 0;
-				}
-				padding: 1% 0 0 0;
-				h4 {
-					padding: 1.0%;
-					font-size: 1.25rem;
-				}
-				a {
-					font-size: 1.0rem;
-				}
-				a.btn-social {
-					font-size: 2rem;
-				}
-				a.copyright-text {
-					padding: 0;
-					margin: 0;
-				}
-			}
+	footer {
+		div {
+			padding: 1.0% 0 1.0% 0;
 		}
+		padding: 1% 0 0 0;
+		h4 {
+			padding: 1.0%;
+			font-size: 1.25rem;
+		}
+		a {
+			font-size: 1.0rem;
+		}
+		a.btn-social {
+			font-size: 2.0rem;
+		}
+		a#copyright-text {
+			padding: 0;
+			margin: 0;
+		}
+			
 	}
 }
