@@ -59,7 +59,7 @@
 		<!-- ––––––––––––––––––––––––––––––––––––– * result * ––––––––––––––––––––– -->
 		<section id='result-section' class='page-section'>
 			<div class='container'>
-					<h2 id='result'></h2>
+					<h2 id='result' class='container'>...</h2>
 			</div>
 		</section>
 	</div>	
@@ -119,7 +119,7 @@
 		});
 		$('#clear-button').click(function()
 		   {
-			$.ajax($('#result').text(''))
+			$.ajax($('#result').text('...'))
 			console.log('cleared')
 		});  
     
