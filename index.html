@@ -47,7 +47,7 @@
 		</section>
 		<!-- ––––––––––––––––––––––––––––––––––––– * canvas / predict / clear * ––––––––––––––––––––– -->
 		<section id='canvas-section' class='page-section'>
-			<div class='container'>
+			<div id='canvas-container' class='container'>
 				<canvas id='canvas'></canvas>
 				<h3>Write a number in the Canvas</h3>
 				<div class='row'>
@@ -66,13 +66,13 @@
 	<!-- ––––––––––––––––––––––––––––––––––––– * FOOTER / COPYRIGHT SECTION * ––––––––––––––––––––––––––––––––––––– -->
 	<footer class='row'>
 			<!-- Footer About Text -->
-			<div class='col-lg-4 col-12'>
+			<div class='col-lg-4 col-12 container grow'>
 				<h4 >Direct Contact</h4>
-				<a href = 'mailto: oabusheikh@gmail.com'>oabusheikh@gmail.com</a><br>
-				<a href='tel:+15129639461'>+1-512-963-9461</a>				
+				<a class='grow' href = 'mailto: oabusheikh@gmail.com'>oabusheikh@gmail.com</a><br>
+				<a class='grow' href='tel:+15129639461'>+1-512-963-9461</a>				
 			</div>
 			<!-- Footer Social Icons -->
-			<div id="footer-links-section" class='col-lg-4 col-12'>
+			<div id="footer-links-section" class='col-lg-4 col-12 container grow'>
 				<h4 >Web</h4>
 				<a class='btn grow btn-social' href='https://www.linkedin.com/in/oabusheikh/' target= '_blank'><i class='grow fab fa-fw fa-linkedin'></i></a>
 				<a class='btn grow btn-social' href='https://github.com/Ohmarr' target= '_blank'><i class='grow fab fa-fw fa-github'></i></a>
@@ -83,7 +83,7 @@
 				<h4 >LOCATION</h4>
 				<p class='lead'>Austin, Texas 78741</p>
 			</div>
-			<div id="footer-copyright-section" class='container'>
+			<div id="footer-copyright-section" class='container grow'>
 			<!-- Footer Location -->
 				<a id='copyright-text' href = 'http://Ohmarr.github.io'>
 					<small>Copyright &copy; Ohmarr.github.io 2019</small>
@@ -100,17 +100,17 @@
 		   {
 			// var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 			var canvasObj = document.getElementById('canvas');
-			var img = canvasObj.toDataURL();
+			var canvasData = canvasObj.toDataURL();
 			$.ajax(
 				{
 				type: 'POST',
 				url: '/predict/',
 				// url: $SCRIPT_ROOT + '/predict/',
-				data: img,
+				data: canvasData,
 				success: function(data)
 				{
-					$('#result').text(' The Model Predicts A '+data);
-					console.log(data)
+					$('#result').text('The Model Predicts a '+data[1]);
+					// console.log(typeof(data))
 					// console.log($SCRIPT_ROOT)
 				}
 				}

@@ -139,6 +139,7 @@ def predict():
 	image_array = preprocess_image(filepath)
 	image_array = preprocess_array(image_array)
 	prediction = make_prediction(image_array)
+	print(prediction)
 	#     prediction, probability = make_prediction(image_array)
 	# return prediction, probability
 	return prediction

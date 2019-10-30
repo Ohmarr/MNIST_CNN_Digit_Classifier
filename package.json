@@ -12,7 +12,19 @@
 		"type": "git",
 		"url": "git+https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier.git"
 	},
-	"keywords": [ "npm", "node", "package", "manager", "leaflet", "javascript", "js", "html", "css", "php", "gulp" ],
+	"keywords": [
+		"npm",
+		"node",
+		"package",
+		"manager",
+		"leaflet",
+		"javascript",
+		"js",
+		"html",
+		"css",
+		"php",
+		"gulp"
+	],
 	"author": "Omar Abusheikh",
 	"license": "ISC",
 	"bugs": {
@@ -35,7 +47,8 @@
 		"webpack-stream": "^5.2.1"
 	},
 	"devDependencies": {
-		"jquery": "^3.4.1",
-		"gulp-eslint": "^6.0.0"
+		"eslint": "^6.6.0",
+		"gulp-eslint": "^6.0.0",
+		"jquery": "^3.4.1"
 	}
 }

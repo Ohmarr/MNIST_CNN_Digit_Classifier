@@ -1,82 +1,135 @@
-(function() {
-	var canvas = document.querySelector('#canvas');
-	canvas.height = canvas.width = 280;
+// https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+const canvas = document.querySelector('#canvas');
+// const canvasContainer = document.getElementById('canvas-container');
+// var radius = (canvasContainer.clientWidth + canvasContainer.clientHeight) / 150;
+canvas.height = canvas.width = 280;
 
-	const drawingObject = canvas.getContext('2d');
-	// drawingObject.fillStyle = '#FF0000';
-	drawingObject.color = 'black';
-	drawingObject.lineWidth = 10;
-	drawingObject.lineJoin = drawingObject.lineCap = 'miter';
+const drawingObject = canvas.getContext('2d');
+// drawingObject.fillStyle = '#FF0000';
+drawingObject.color = 'black';
+drawingObject.lineWidth = 10;
+drawingObject.lineJoin = drawingObject.lineCap = 'miter';
 
-	var lastMouse, Mouse;
-	lastMouse = Mouse = { x: 0, y: 0 };
+/* Feature detection */
+var passive = false;
+// var notPassive = true;
 
-	prepareCanvas();
+var currentPosition, previousPosition;
+currentPosition = previousPosition = { x: 0, y: 0 };
 
-	canvas.addEventListener(
-		'mousemove',
-		function(e) {
-			lastMouse.x = Mouse.x;
-			lastMouse.y = Mouse.y;
+clearAndPrepCanvas();
+// canvas.addEventListener(
+// 	'touchmove',
+// 	function(event) {
+// 		if (canvas.classList.contains('disabled')){return}
+// 		event.preventDefault(); event.stopPropagation()
+// 		return false
+// 	},); // Disables Default & Propagation
 
-			Mouse.x = e.pageX - this.offsetLeft;
-			Mouse.y = e.pageY - this.offsetTop;
-		},
-		false
-	);
-	canvas.addEventListener(
-		'mousedown',
-		function() {
-			canvas.addEventListener('mousemove', onWrite, false);
-		},
-		false
-	);
-	canvas.addEventListener(
-		'mouseup',
-		function() {
-			canvas.removeEventListener('mousemove', onWrite, false);
-		},
-		false
-	);
 
-	var onWrite = function() {
-		drawingObject.lineWidth = drawingObject.lineWidth;
-		drawingObject.lineJoin = 'miter';
+function getPostion(event) {
+	currentPosition.x = previousPosition.x;
+	currentPosition.y = previousPosition.y;
+	previousPosition.x = event.pageX - this.offsetLeft;
+	previousPosition.y = event.pageY - this.offsetTop;
+}
+// function mouseDraw() {
 
-		drawingObject.lineCap = 'round';
-		drawingObject.strokeStyle = drawingObject.color;
+// }
 
-		drawingObject.beginPath();
-		drawingObject.moveTo(lastMouse.x, lastMouse.y);
-		drawingObject.lineTo(Mouse.x, Mouse.y);
-		drawingObject.closePath();
-		drawingObject.stroke();
-	};
-	/* CLEAR BUTTON */
-	function prepareCanvas() {
-		var clearButton = $('#clear-button');
+canvas.addEventListener('mousemove', getPostion, passive); // Detects Move (Mouse) & Captures Coordinates
+canvas.addEventListener(
+	'mousedown',
+	function() {
+		canvas.addEventListener('mousemove', invokeDrawing, passive);
+	},
+	passive
+); // Detects downclick (drawing) & calls invokeDrawing
+canvas.addEventListener(
+	'mouseup',
+	function() {
+		canvas.removeEventListener('mousemove', invokeDrawing, passive);
+	},
+	passive
+); // Detects let go, user input ended/paused & calls invokeDrawing
 
-		clearButton.on('click', function() {
-			drawingObject.clearRect(0, 0, canvas.width, canvas.height);
-			drawingObject.fillStyle = '#E6E6E6';
-			// drawingObject.font = '30px Arial';
-			// drawingObject.fillText = ('Texsting', canvas.width/2, canvas.height/2);
-			// drawingObject.textAlign = 'center';
-			drawingObject.fillRect(0, 0, canvas.width, canvas.height);
-		});
+// canvas.addEventListener(
+// 	'touchmove',
+// 	function(event) {
+// 		if (canvas.classList.contains('disabled')){return}
+// 		event.preventDefault(); event.stopPropagation()
+// 		return false
+// 	},); // Disables Default & Propagation
+canvas.addEventListener(
+	'touchmove',
+	function(event) {
+		event.preventDefault(); 
+		event.stopPropagation();
+		getPostion(event);	
+	var touch = event.touches[0];
+	var mouseEvent = new MouseEvent("mousemove", {
+		clientX: touch.clientX,
+		clientY: touch.clientY
+	});
+	canvas.dispatchEvent(mouseEvent);	
+	},
+	passive
+); // Detects Move (Mouse) & Captures Coordinates
+
+// canvas.addEventListener("touchmove", function (event) {
+
+// 	}, false);
+canvas.addEventListener(
+	'touchstart',
+	function() {
+		canvas.addEventListener('touchmove', invokeDrawing, passive);
+	},
+	passive
+); // Detects downclick (drawing) & calls invokeDrawing
+canvas.addEventListener(
+	'touchend',
+	function() {
+		canvas.removeEventListener('touchmove', invokeDrawing, passive);
+	},
+	passive
+); // Detects let go, user input ended/paused & calls invokeDrawing
+
+
+const invokeDrawing = function() {
+	// drawingObject.lineWidth = drawingObject.lineWidth;
+	drawingObject.lineJoin = 'round'; // round, bevel, or miter;
+	drawingObject.lineCap = 'round';
+	drawingObject.strokeStyle = '#6d0707';
+
+	drawingObject.beginPath();
+	drawingObject.moveTo(currentPosition.x, currentPosition.y);
+	drawingObject.lineTo(previousPosition.x, previousPosition.y);
+	// drawingObject.stroke();
+	// drawingObject.lineTo(currentPosition.x, currentPosition.y);
+	drawingObject.stroke();
+	drawingObject.closePath();
+	// drawingObject.stroke();
+
+}; // LISTENER Function, which draws on the canvas ONLY when 'mousedown'
+
+function clearAndPrepCanvas() {
+	var clearButton = $('#clear-button');
+
+	clearButton.on('click', function() {
+		drawingObject.clearRect(0, 0, canvas.width, canvas.height);
+		drawingObject.fillStyle = '#E6E6E6';
+	});
+	/* FONT WIDTH ADJUSTER */
+	var slider = document.getElementById('slider-range');
+	var output = document.getElementById('slider-value');
+	output.innerHTML = slider.value;
+	slider.oninput = function() {
+		output.innerHTML = this.value;
+		drawingObject.lineWidth = $(this).val();
 		// /* COLOR SELECTOR */
 		// $('#colors').change(function() {
 		// 	var color = $('#colors').val();
 		// 	drawingObject.color = color;
 		// });
-
-		/* FONT WIDTH ADJUSTER */
-		var slider = document.getElementById('slider-range');
-		var output = document.getElementById('slider-value');
-		output.innerHTML = slider.value;
-		slider.oninput = function() {
-			output.innerHTML = this.value;
-			drawingObject.lineWidth = $(this).val();
-		};
-	}
-})();
+	};
+} // Clear & Prepare (stroke width) Canvas - ALSO INVOKED BY CLEAR BUTTON CLICK
