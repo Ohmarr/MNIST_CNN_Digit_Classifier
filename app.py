@@ -102,8 +102,8 @@ def make_prediction(image_array):
 			probability_array, axis=accross_columns)  # Prediction = highest probability
 		# Prediction = highest probability
 		prediction = str(highest_probability_index)
-		probability = '{:.5%}'.format(
-			float(probability_array[0][highest_probability_index]))
+		# probability = '{:.5%}'.format(
+		# 	float(probability_array[0][highest_probability_index]))
 	# return prediction, probability
 	return prediction
 
