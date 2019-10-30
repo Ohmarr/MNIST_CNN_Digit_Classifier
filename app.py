@@ -108,7 +108,7 @@ def make_prediction(image_array):
 	return prediction
 
 
-filepath = 'temp/image_canvas.png'  # location of file output from canvas
+filepath = 'assets/temp/image_canvas.png'  # location of file output from canvas
 model_path = 'MNIST_CNN.h5'
 
 session = tf.Session()
