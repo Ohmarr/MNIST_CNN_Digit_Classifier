@@ -21,7 +21,7 @@ This application was built in four phases, each of which are describe in greater
 
 <hr>
 
-<h2 align='center>Phases in Application Development:</h2>
+<h2 align='center'>Phases in Application Development:</h2>
 
 **Phase 1** - Backend - _Building the CNN_:
 - Written in Python, utilizing keras machine-learning API with tensorflow backend (tf.keras), MatPlotLib, Pandas, NumPy,  
