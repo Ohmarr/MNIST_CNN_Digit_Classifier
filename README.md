@@ -23,8 +23,6 @@ This application was built in four phases, each of which are describe in greater
 
 <hr>
 
-<h2 align='center'>Phases in Application Development:</h2>
-
 **Phase 1** - Backend - _Building the CNN_:
 - Written in Python, utilizing keras machine-learning API with tensorflow backend (tf.keras), MatPlotLib, Pandas, NumPy,  
 - Developed in Jupyter Notebook File ['Development-CNN_Backend.ipynb'](https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/Development-CNN_Backend.ipynb),
@@ -55,7 +53,3 @@ This application was built in four phases, each of which are describe in greater
 <h4 align=center>The Logo in my navbar & the website icon ('favicons') were also created by me,&cannot be copied or reproduced.</h4>
 
 **Technologies**: Machine Learning, tensorflow, keras, matplotlib, pandas, numpy, jupyter notebook, PaaS, FloydHub, Node.js, npm, bootstrap, gulp, RESTful API, WSGI, Gunicorn, Ajax, JavaScript, HTML, CSS, Pillow, Regular Expressions, Jinja2, WerkZeug.
-
-
-
-<style>h1 {color:red}</style>
