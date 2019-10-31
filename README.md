@@ -1,19 +1,19 @@
+<!--⇧⌘V-To Preview-->
+<h1 align='center' color='red'>Drawn Digit Predictor</h1>
+
 ||||
 |:---|:---:|---:|
 |<img width="1604" alt="keras" src="https://s3.amazonaws.com/keras.io/img/keras-logo-2018-large-1200.png">|<img width="1604" alt="tensorflow" src="https://avatars0.githubusercontent.com/u/15658638?s=200&v=4">|<img width="1604" alt="Flask" src="https://flask.palletsprojects.com/en/1.1.x/_images/flask-logo.png">|
-
-<!--⇧⌘V-To Preview-->
-<h1 align='center' color='red'>Drawn Digit Predictor</h1>
 
 **Visit my [Online Portfolio](https://Ohmarr.github.io)**
 
 <hr>
 
 This application was built in four phases, each of which are describe in greater detail below:
-- Phase 1: Build a Convolutional Neural Network (CNN) to detect hand-drawn digits, & prepare it for general use,
-- Phase 2: Train the model, & save it to make predictions,
-- Phase 3: Develop remainder of full-stack application to integrate user input & prediction algorithm,
-- Phase 4: Deploy Completed Application on a Platform as a Service (PaaS). 
+- **Phase 1**: Build a Convolutional Neural Network (CNN) to detect hand-drawn digits, & prepare it for general use,
+- **Phase 2**: Train the model, & save it to make predictions,
+- **Phase 3**: Develop remainder of full-stack application to integrate user input & prediction algorithm,
+- **Phase 4**: Deploy Completed Application on a Platform as a Service (PaaS). 
 
  About the Data:
  - '[MNIST](http://yann.lecun.com/exdb/mnist/) Database of handwritten digits' is maintained by [Yann Lecun](http://yann.lecun.com/),
@@ -56,7 +56,6 @@ This application was built in four phases, each of which are describe in greater
 <h4 align=center>The Logo in my navbar & the website icon ('favicons') were also created by me,&cannot be copied or reproduced.</h4>
 
 **Technologies**: Machine Learning, tensorflow, keras, matplotlib, pandas, numpy, jupyter notebook, PaaS, FloydHub, Node.js, npm, bootstrap, gulp, RESTful API, WSGI, Gunicorn, Ajax, JavaScript, HTML, CSS, Pillow, Regular Expressions, Jinja2, WerkZeug.
-
 
 |Set|Loss|Accuracy| 
 |---|:-------------------------:|:-------------------------:|
