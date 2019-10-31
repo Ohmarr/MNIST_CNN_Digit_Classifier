@@ -53,3 +53,9 @@ This application was built in four phases, each of which are describe in greater
 <h4 align=center>The Logo in my navbar & the website icon ('favicons') were also created by me,&cannot be copied or reproduced.</h4>
 
 **Technologies**: Machine Learning, tensorflow, keras, matplotlib, pandas, numpy, jupyter notebook, PaaS, FloydHub, Node.js, npm, bootstrap, gulp, RESTful API, WSGI, Gunicorn, Ajax, JavaScript, HTML, CSS, Pillow, Regular Expressions, Jinja2, WerkZeug.
+
+
+| | | 
+|:-------------------------:|:-------------------------:|
+|<img width="1604" alt="Training Loss" src="https://raw.githubusercontent.com/Ohmarr/MNIST_CNN_Digit_Classifier/master/assets/images/FloydHub-TrainingMetrics1.png"> | <img width="1604" alt="Training Accuracy" src="https://raw.githubusercontent.com/Ohmarr/MNIST_CNN_Digit_Classifier/master/assets/images/FloydHub-TrainingMetrics2.png">|
+|<img width="1604" alt="Validation Accuracy" src="https://raw.githubusercontent.com/Ohmarr/MNIST_CNN_Digit_Classifier/master/assets/images/FloydHub-ValidationAccuracy1.png">  |  <img width="1604" alt="Validation Loss" src="https://raw.githubusercontent.com/Ohmarr/MNIST_CNN_Digit_Classifier/master/assets/images/FloydHub-ValidationAccuracy2.png">|
