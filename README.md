@@ -21,17 +21,17 @@ This application was built in four phases, each of which are describe in greater
 
 <hr>
 
-**Phases in Application Development:**  
+<h2 align='center>Phases in Application Development:</h2>
 
-**Phase 1 - Backend - Building the CNN:**
+**Phase 1** - Backend - _Building the CNN_:
 - Written in Python, utilizing keras machine-learning API with tensorflow backend (tf.keras), MatPlotLib, Pandas, NumPy,  
 - Developed in Jupyter Notebook File ['Development-CNN_Backend.ipynb'](https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/Development-CNN_Backend.ipynb),
 - Model was manually built using keras 'Sequential' method,
 - MNIST dataset was split into 60,000 training images & 10,000 validation images,
 - Training process tested on single epoch (training locally was prohibitive due to processing power).
 
-**Phase 2 - Backend - Training Convolutional Neural Network: Utilising Cloud Processing Power in FloydHub:**
-- Jupyter Notebook File ['Development-CNN_Backend.ipynb']('https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/Development-CNN_Backend.ipynb') was converted into Python file ['training_app'](https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/training_app.py),
+**Phase 2** - _Backend - Training Convolutional Neural Network: Utilising Cloud Processing Power in FloydHub_:
+- Jupyter Notebook File ['Development-CNN_Backend.ipynb']('https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/Development-CNN_Backend.ipynb') was converted into Python file '[training_app](https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/training_app.py)',
 - Training data & python file uploaded to FloydHub (Machine Learning Platform), where the model was trained, [saved]() to the cloud, then downloaded locally for the next step,
 - Model performance & layers listed below.  
 
@@ -39,17 +39,17 @@ This application was built in four phases, each of which are describe in greater
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Type** | Convolutional | Pooling | Dropout | Convolutional | Pooling | Dropout | Convolutional | Pooling | Dropout | Flatten | Dense | Dropout | Dense |  
 
-**Phase 3 - Full-Stack - Developing Interactive Application:**
+**Phase 3** - _Full-Stack - Developing Interactive Application_:
 - Built with Node.js, node package manager (npm), bootstrap, & the [gulp](https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/gulpfile.js) (JS toolkit) streaming build system,
 - Developed in Jupyter Notebook File ['Development-Flask_Frontend.ipynb'](https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/Development-Flask_Frontend.ipynb) & Converted into final python file ['app.py'](https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/app.py),
 - Constructed as RESTful API, capturing user input, processing it, then displaying the prediction, 
-- Utilitzed Flask Web Micro-Framework, Werkzeug WSGI (Web Server Gateway Interface), Green Unicorn (Gunicorn) WSGI HTTP Server, Jinja2 templating engine, numPy, regular expressions, Pillow, Ajax, JavaScript, Event Listeners.
+- Utilized Flask Web Micro-Framework, Werkzeug WSGI (Web Server Gateway Interface), Green Unicorn (Gunicorn) WSGI HTTP Server, Jinja2 templating engine, numPy, regular expressions, Pillow, Ajax, JavaScript, Event Listeners.
 
-**Phase 4 - Deploy to Heroku PaaS:**
+**Phase 4** - _Deploy to Heroku PaaS_:
 - Prepare resources, Procfile, debug, finalize styling, 
 - perform final npm build, 
 - Deploy as standalone [website](https://digit-classifier-mnist.herokuap.com). 
 
 <h4 align=center>The Logo in my navbar & the website icon ('favicons') were also created by me,&cannot be copied or reproduced.</h4>
 
-Technologies: Machine Learning, tensorflow, keras, matplotlib, pandas, numpy, jupyter notebook, PaaS, FloydHub, Node.js, npm, bootstrap, gulp, RESTful API, WSGI, Gunicorn, Ajax, JavaScript, HTML, CSS, Pillow, Regular Expressions, Jinja2, WerkZeug.
+**Technologies**: Machine Learning, tensorflow, keras, matplotlib, pandas, numpy, jupyter notebook, PaaS, FloydHub, Node.js, npm, bootstrap, gulp, RESTful API, WSGI, Gunicorn, Ajax, JavaScript, HTML, CSS, Pillow, Regular Expressions, Jinja2, WerkZeug.
