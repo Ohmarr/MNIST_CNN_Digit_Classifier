@@ -1,5 +1,7 @@
+
+
 <!--⇧⌘V-To Preview-->
-<h1 align='center'>Drawn Digit Predictor</h1>
+<h1 align='center' color='red'>Drawn Digit Predictor</h1>
 
 **Visit my [Online Portfolio](https://Ohmarr.github.io)**
 
@@ -53,3 +55,7 @@ This application was built in four phases, each of which are describe in greater
 <h4 align=center>The Logo in my navbar & the website icon ('favicons') were also created by me,&cannot be copied or reproduced.</h4>
 
 **Technologies**: Machine Learning, tensorflow, keras, matplotlib, pandas, numpy, jupyter notebook, PaaS, FloydHub, Node.js, npm, bootstrap, gulp, RESTful API, WSGI, Gunicorn, Ajax, JavaScript, HTML, CSS, Pillow, Regular Expressions, Jinja2, WerkZeug.
+
+
+
+<style>h1 {color:red}</style>
