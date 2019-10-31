@@ -1,5 +1,6 @@
 <!--⇧⌘V-To Preview-->
 <h1 align='center'>Drawn Digit Predictor</h1>
+<hr>
 
 ||||
 |:---|:---:|---:|
