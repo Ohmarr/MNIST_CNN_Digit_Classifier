@@ -58,4 +58,4 @@ This application was built in four phases, each of which are describe in greater
 | | | 
 |:-------------------------:|:-------------------------:|
 |<img width="1604" alt="Training Loss" src="https://raw.githubusercontent.com/Ohmarr/MNIST_CNN_Digit_Classifier/master/assets/images/FloydHub-TrainingMetrics1.png"> | <img width="1604" alt="Training Accuracy" src="https://raw.githubusercontent.com/Ohmarr/MNIST_CNN_Digit_Classifier/master/assets/images/FloydHub-TrainingMetrics2.png">|
-|<img width="1604" alt="Validation Accuracy" src="https://raw.githubusercontent.com/Ohmarr/MNIST_CNN_Digit_Classifier/master/assets/images/FloydHub-ValidationAccuracy1.png">  |  <img width="1604" alt="Validation Loss" src="https://raw.githubusercontent.com/Ohmarr/MNIST_CNN_Digit_Classifier/master/assets/images/FloydHub-ValidationAccuracy2.png">|
+|<img width="1604" alt="Validation Loss" src="https://raw.githubusercontent.com/Ohmarr/MNIST_CNN_Digit_Classifier/master/assets/images/FloydHub-ValidationAccuracy2.png">|<img width="1604" alt="Validation Accuracy" src="https://raw.githubusercontent.com/Ohmarr/MNIST_CNN_Digit_Classifier/master/assets/images/FloydHub-ValidationAccuracy1.png">|
