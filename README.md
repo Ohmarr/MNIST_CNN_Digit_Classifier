@@ -32,7 +32,7 @@ This application was built in four phases, each of which are describe in greater
 
 **Phase 2** - _Backend - Training Convolutional Neural Network: Utilising Cloud Processing Power in FloydHub_:
 - Jupyter Notebook File ['Development-CNN_Backend.ipynb']('https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/Development-CNN_Backend.ipynb') was converted into Python file '[training_app](https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/training_app.py)',
-- Training data & python file uploaded to FloydHub (Machine Learning Platform), where the model was trained, [saved]() to the cloud, then downloaded locally for the next step,
+- Training data & python file uploaded to FloydHub (Machine Learning Platform), where the model was trained, [saved](https://github.com/Ohmarr/MNIST_CNN_Digit_Classifier/blob/master/MNIST_CNN.h5) to the cloud, then downloaded locally for the next step,
 - Model performance & layers listed below.  
 
 | **Layer** | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th | 10th | 11th | 12th | 13th |
@@ -45,7 +45,7 @@ This application was built in four phases, each of which are describe in greater
 - Constructed as RESTful API, capturing user input, processing it, then displaying the prediction, 
 - Utilized Flask Web Micro-Framework, Werkzeug WSGI (Web Server Gateway Interface), Green Unicorn (Gunicorn) WSGI HTTP Server, Jinja2 templating engine, numPy, regular expressions, Pillow, Ajax, JavaScript, Event Listeners.
 
-**Phase 4** - _Deploy to Heroku PaaS_:
+**Phase 4** - _Deploy to Heroku (PaaS)_:
 - Prepare resources, Procfile, debug, finalize styling, 
 - perform final npm build, 
 - Deploy as standalone [website](https://digit-classifier-mnist.herokuap.com). 
