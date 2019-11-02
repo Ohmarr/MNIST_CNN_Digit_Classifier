@@ -13,7 +13,7 @@
 <h2 align='center'>Overview</h2>
 
 **Project Overview**:
-This application was built in four phases, each of which are describe in greater detail below:
+This application was built in four phases, each of which are described in greater detail below:
 - **Phase 1**: Build a Convolutional Neural Network (CNN) to detect hand-drawn digits, & prepare it for general use,
 - **Phase 2**: Train the model, & save it to make predictions,
 - **Phase 3**: Develop remainder of full-stack application to integrate user input & prediction algorithm,
@@ -22,7 +22,7 @@ This application was built in four phases, each of which are describe in greater
 <hr>
 
 **Dataset Overview**:
- - '[MNIST](http://yann.lecun.com/exdb/mnist/) Database of handwritten digits' is maintained by [Yann Lecun](http://yann.lecun.com/),
+ - '[MNIST Database of handwritten digits](http://yann.lecun.com/exdb/mnist/)' is maintained by [Yann Lecun](http://yann.lecun.com/),
  - Dataset includes 70,000 example images, which were used for this project.
 
 <p align="center">
