@@ -5,7 +5,7 @@
 	const drawingObject = canvas.getContext('2d');
 	// drawingObject.fillStyle = '#FF0000';
 	drawingObject.color = 'black';
-	drawingObject.lineWidth = 10;
+	drawingObject.lineWidth = 22;
 	drawingObject.lineJoin = drawingObject.lineCap = 'round';
 
 	var lastMouse, Mouse;
