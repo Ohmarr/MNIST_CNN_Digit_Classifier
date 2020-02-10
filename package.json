@@ -49,6 +49,7 @@
 	"devDependencies": {
 		"eslint": "^6.6.0",
 		"gulp-eslint": "^6.0.0",
-		"jquery": "^3.4.1"
+		"jquery": "^3.4.1",
+		"serialize-javascript": "^2.1.1"
 	}
 }
