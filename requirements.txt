@@ -1,7 +1,7 @@
 Flask==1.1.1
 tensorflow>=1.13.1
 numpy==1.17.2
-Pillow==6.2.0
+Pillow==9.0.1
 gunicorn==19.9.0
 
 # absl-py==0.8.1
@@ -72,7 +72,7 @@ gunicorn==19.9.0
 # pathlib2==2.3.5
 # pexpect==4.7.0
 # pickleshare==0.7.5
-# Pillow==6.2.0
+# Pillow==9.0.1
 # prometheus-client==0.7.1
 # prompt-toolkit==2.0.10
 # protobuf==3.9.2
